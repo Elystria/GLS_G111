@@ -1,0 +1,6 @@
+process C'est lui {
+	wd C'est nous
+	wd C'est vous
+	ws C'est nous s2s C'est vous
+	ws C'est vous s2s C'est vous
+}

@@ -1,0 +1,30 @@
+[comment encoding = UTF-8 /]
+[module totina('http://www.example.org/petriNet')]
+
+[comment Generation de la syntaxe PetriNet à partir d'un modèle de PetriNetwork /]
+
+[template public totina(aPetriNetwork : PetriNetwork)]
+[comment @main/]
+[file (aPetriNetwork.name.concat('.net'), false, 'UTF-8')]
+net [aPetriNetwork.name/]
+
+[for (p : Place | aPetriNetwork.petrielement->getPlaces())]
+	pl [p.name/] ([p.nbJetons/])
+[/for]
+
+
+[/file]
+[/template]
+
+
+[query public getPlaces(elements : OrderedSet(PetriElement)) : OrderedSet(Place) = 
+	elements->select( e | e.oclIsTypeOf(Place) )
+		->collect( e | e.oclAsType(Place) )
+		->asOrderedSet()
+/]
+
+[query public getPetriElements(elements : OrderedSet(PetriNetwork)) : OrderedSet(PetriElement) = 
+	elements->select( e | e.oclIsTypeOf(PetriElement) )
+		->collect( e | e.oclAsType(PetriElement) )
+		->asOrderedSet()
+/]

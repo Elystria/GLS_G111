@@ -1,0 +1,9 @@
+
+Process fruitsEtLegumes {
+	processElements {
+		WorkDefinition ananas {
+			linksToSuccessors()
+		}
+		
+	}
+}

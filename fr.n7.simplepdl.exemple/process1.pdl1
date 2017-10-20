@@ -1,0 +1,8 @@
+
+process dvp {
+	wd avocat
+	wd banane
+	wd chaton
+	ws s2s from avocat to banane
+	ws f2f from banane to chaton
+}

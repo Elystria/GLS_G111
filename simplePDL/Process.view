@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/170" xmi:id="_RfIj4K_zEeeMvJf7MnteSw" name="Process" ecorePath="/simplePDL/SimplePDL.ecore">
+  <rootEClass href="http://simplepdl#//Process"/>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_RfV_QK_zEeeMvJf7MnteSw" name="Control name">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_RfV_Qa_zEeeMvJf7MnteSw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://simplepdl#//Process/name"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_RfV_Qq_zEeeMvJf7MnteSw" name="Control processElements">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_RfV_Q6_zEeeMvJf7MnteSw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://simplepdl#//Process/processElements"/>
+    </domainModelReference>
+  </children>
+</org.eclipse.emf.ecp.view.model:View>

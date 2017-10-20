@@ -1,0 +1,6 @@
+process Exemple {
+	wd a1
+	wd a2
+	ws a1 s2f invalid
+	ws a2 s2s a1
+}
