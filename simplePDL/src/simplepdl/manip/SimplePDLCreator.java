@@ -1,3 +1,5 @@
+//TODO : importer les sources de petrinet
+
 package simplepdl.manip;
 
 import java.io.IOException;

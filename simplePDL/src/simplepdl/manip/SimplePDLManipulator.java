@@ -42,13 +42,13 @@ public class SimplePDLManipulator {
 		/**
 		 * Manipulation de notre instance
 		 */
-		// AccÃ©der aux informations du processus chargÃ©
+		// Accéder aux informations du processus chargé
 	    System.out.println("Processus : " + process.getName());
-	    // Naviguer dans les rÃ©fÃ©rences
+	    // Naviguer dans les références
 	    Integer nbPE = process.getProcessElements().size();
 	    System.out.println("Nombre de ProcessElement dans " + process.getName() + " : " + nbPE);
 
-		// Afficher les sous-activitÃ©s
+		// Afficher les sous-activités
 		System.out.println("Les sous-activitÃ©s sont :");
 		for (Object o : process.getProcessElements()) {
 			if (o instanceof WorkDefinition) {
