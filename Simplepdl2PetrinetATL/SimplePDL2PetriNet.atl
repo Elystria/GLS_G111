@@ -1,0 +1,85 @@
+module SimplePDL2PetriNet;
+create OUT: petrinet from  IN: simplepdl;
+
+-- Obtenir le processus qui contient ce process element.
+-- Remarque: Ce helper ne serait pas utile si une r�f�rence opposite
+-- avait �t� plac�e entre Process et ProcessElement
+helper context simplepdl!ProcessElement 
+def: getProcess(): simplepdl!Process =
+	simplepdl!Process.allInstances()
+		->select(p | p.processElements->includes(self))
+		->asSequence()->first();
+
+-- Traduire un Process en un PetriNet de m�me nom
+rule Process2PetriNet {
+	from p: simplepdl!Process
+	to pn: petrinet!PetriNetwork (name <- p.name) 
+	
+	do { pn.petrielement <- petrinet!Arc.allInstances()
+		->union(petrinet!Place.allInstances())
+		->union(petrinet!Transition.allInstances());
+	}
+}
+
+-- Traduire une WorkDefinition en un motif sur le r�seau de Petri
+rule WorkDefinition2PetriNet {
+	from wd: simplepdl!WorkDefinition
+	to
+		-- PLACES d'une WorkDefinition
+		p_ready: petrinet!Place(
+				name <- wd.name + '_ready',
+				nbJetons <- 1),
+				--net <- wd.getProcess()),
+		p_running: petrinet!Place(
+				name <- wd.name + '_running',
+				nbJetons <- 0),
+				--net <- wd.getProcess()),
+		p_started: petrinet!Place(
+				name <- wd.name + '_started',
+				nbJetons <- 0),
+				--net <- wd.getProcess()),
+		p_finished: petrinet!Place(
+				name <- wd.name + '_finished',
+				nbJetons <- 0),
+				--net <- wd.getProcess()),
+				
+		t_starts: petrinet!Transition(
+				name <- wd.name + '_starts'),
+				--net <- wd.getProcess()),
+		t_finishes: petrinet!Transition(
+				name <- wd.name + '_finishes'),
+				--net <- wd.getProcess()),
+				
+		a_ready2starts: petrinet!Arc(
+				place <- p_ready,
+				transition <- t_starts,
+				Direction <- #P2T,
+				jetonsTransferes <- 1),
+				--net <- wd.getProcess()),
+		a_starts2started: petrinet!Arc(
+				transition <- t_starts,
+				place <- p_started,
+				Direction <- #T2P,
+				jetonsTransferes <- 1),
+				--net <- wd.getProcess()),
+		a_starts2running: petrinet!Arc(
+				transition <- t_starts,
+				place <- p_running,
+				Direction <- #T2P,
+				jetonsTransferes <- 1),
+				--net <- wd.getProcess()),
+		a_running2finishes: petrinet!Arc(
+				place <- p_running,
+				transition <- t_finishes,
+				Direction <- #P2T,
+				jetonsTransferes <- 1),
+				--net <- wd.getProcess()),
+		a_finishes2finished: petrinet!Arc(
+				transition <- t_finishes,
+				place <- p_finished,
+				Direction <- #T2P,
+				jetonsTransferes <- 1)
+				--net <- wd.getProcess())
+}
+
+
