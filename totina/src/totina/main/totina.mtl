@@ -12,6 +12,18 @@ net [aPetriNetwork.name/]
 	pl [p.name/] ([p.nbJetons/])
 [/for]
 
+[for (t : Transition | aPetriNetwork.petrielement->getTransitions())]
+	tr [t.name/]
+	[for (arc : Arc | aPetriNetwork.petrielement->getArcArrivant(t))]
+		[arc.place.name/]*[arc.jetonsTransferes/]
+	[/for]
+	->
+	[for (arc : Arc | aPetriNetwork.petrielement->getArcSortant(t))]
+		[arc.place.name/]*[arc.jetonsTransferes/]
+	[/for]
+[/for]
+
+
 
 [/file]
 [/template]
@@ -23,8 +35,38 @@ net [aPetriNetwork.name/]
 		->asOrderedSet()
 /]
 
+[query public getTransitions(elements : OrderedSet(PetriElement)) : OrderedSet(Transition) = 
+	elements->select( e | e.oclIsTypeOf(Transition) )
+		->collect( e | e.oclAsType(Transition) )
+		->asOrderedSet()
+/]
+
 [query public getPetriElements(elements : OrderedSet(PetriNetwork)) : OrderedSet(PetriElement) = 
 	elements->select( e | e.oclIsTypeOf(PetriElement) )
 		->collect( e | e.oclAsType(PetriElement) )
+		->asOrderedSet()
+/]
+
+[query public getArcArrivant(elements : OrderedSet(PetriElement), trans : Transition) : OrderedSet(Arc) = 
+	elements->select( a | a.oclIsTypeOf(Arc) ) 
+		->collect( a | a.oclAsType(Arc) )
+		->asOrderedSet()
+		->select( good_arc | good_arc.transition=(trans) )
+		->collect( good_arc | good_arc.oclAsType(Arc) )
+		->asOrderedSet()
+		->select( arc_ok | arc_ok.Direction=(ArcDirection::P2T))
+		->collect( arc_ok | arc_ok.oclAsType(Arc) )
+		->asOrderedSet()
+/]
+
+[query public getArcSortant(elements : OrderedSet(PetriElement), trans : Transition) : OrderedSet(Arc) = 
+	elements->select( a | a.oclIsTypeOf(Arc) ) 
+		->collect( a | a.oclAsType(Arc) )
+		->asOrderedSet()
+		->select( good_arc | good_arc.transition=(trans) )
+		->collect( good_arc | good_arc.oclAsType(Arc) )
+		->asOrderedSet()
+		->select( arc_ok | arc_ok.Direction=(ArcDirection::T2P) )
+		->collect( arc_ok | arc_ok.oclAsType(Arc) )
 		->asOrderedSet()
 /]

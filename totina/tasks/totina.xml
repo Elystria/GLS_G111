@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="totina" name="totina">
-    <property name="ECLIPSE_HOME" value="../../../../../mnt/n7fs/ens/tp_babin/gls/.eclipse-gls-4.7.1-1_2017-09-27/.install"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../mnt/n7fs/ens/tp_babin/gls/.eclipse-gls-4.7.1-1_2017-09-27/.install"/>
     <property name="ECLIPSE_WORKSPACE" value="../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->
