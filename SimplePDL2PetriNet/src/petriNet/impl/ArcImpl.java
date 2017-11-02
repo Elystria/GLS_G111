@@ -23,7 +23,7 @@ import petriNet.Transition;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link petriNet.impl.ArcImpl#getJetonsTransférés <em>Jetons Transférés</em>}</li>
+ *   <li>{@link petriNet.impl.ArcImpl#getJetonsTransferes <em>Jetons Transferes</em>}</li>
  *   <li>{@link petriNet.impl.ArcImpl#getTransition <em>Transition</em>}</li>
  *   <li>{@link petriNet.impl.ArcImpl#getPlace <em>Place</em>}</li>
  *   <li>{@link petriNet.impl.ArcImpl#getDirection <em>Direction</em>}</li>
@@ -33,24 +33,24 @@ import petriNet.Transition;
  */
 public class ArcImpl extends PetriElementImpl implements Arc {
 	/**
-	 * The default value of the '{@link #getJetonsTransférés() <em>Jetons Transférés</em>}' attribute.
+	 * The default value of the '{@link #getJetonsTransferes() <em>Jetons Transferes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getJetonsTransférés()
+	 * @see #getJetonsTransferes()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int JETONS_TRANSFÉRÉS_EDEFAULT = 0;
+	protected static final int JETONS_TRANSFERES_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getJetonsTransférés() <em>Jetons Transférés</em>}' attribute.
+	 * The cached value of the '{@link #getJetonsTransferes() <em>Jetons Transferes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getJetonsTransférés()
+	 * @see #getJetonsTransferes()
 	 * @generated
 	 * @ordered
 	 */
-	protected int jetonsTransférés = JETONS_TRANSFÉRÉS_EDEFAULT;
+	protected int jetonsTransferes = JETONS_TRANSFERES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTransition() <em>Transition</em>}' reference.
@@ -116,8 +116,8 @@ public class ArcImpl extends PetriElementImpl implements Arc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getJetonsTransférés() {
-		return jetonsTransférés;
+	public int getJetonsTransferes() {
+		return jetonsTransferes;
 	}
 
 	/**
@@ -125,12 +125,12 @@ public class ArcImpl extends PetriElementImpl implements Arc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setJetonsTransférés(int newJetonsTransférés) {
-		int oldJetonsTransférés = jetonsTransférés;
-		jetonsTransférés = newJetonsTransférés;
+	public void setJetonsTransferes(int newJetonsTransferes) {
+		int oldJetonsTransferes = jetonsTransferes;
+		jetonsTransferes = newJetonsTransferes;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PetriNetPackage.ARC__JETONS_TRANSFÉRÉS,
-					oldJetonsTransférés, jetonsTransférés));
+			eNotify(new ENotificationImpl(this, Notification.SET, PetriNetPackage.ARC__JETONS_TRANSFERES,
+					oldJetonsTransferes, jetonsTransferes));
 	}
 
 	/**
@@ -242,8 +242,8 @@ public class ArcImpl extends PetriElementImpl implements Arc {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PetriNetPackage.ARC__JETONS_TRANSFÉRÉS:
-			return getJetonsTransférés();
+		case PetriNetPackage.ARC__JETONS_TRANSFERES:
+			return getJetonsTransferes();
 		case PetriNetPackage.ARC__TRANSITION:
 			if (resolve)
 				return getTransition();
@@ -266,8 +266,8 @@ public class ArcImpl extends PetriElementImpl implements Arc {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PetriNetPackage.ARC__JETONS_TRANSFÉRÉS:
-			setJetonsTransférés((Integer) newValue);
+		case PetriNetPackage.ARC__JETONS_TRANSFERES:
+			setJetonsTransferes((Integer) newValue);
 			return;
 		case PetriNetPackage.ARC__TRANSITION:
 			setTransition((Transition) newValue);
@@ -290,8 +290,8 @@ public class ArcImpl extends PetriElementImpl implements Arc {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PetriNetPackage.ARC__JETONS_TRANSFÉRÉS:
-			setJetonsTransférés(JETONS_TRANSFÉRÉS_EDEFAULT);
+		case PetriNetPackage.ARC__JETONS_TRANSFERES:
+			setJetonsTransferes(JETONS_TRANSFERES_EDEFAULT);
 			return;
 		case PetriNetPackage.ARC__TRANSITION:
 			setTransition((Transition) null);
@@ -314,8 +314,8 @@ public class ArcImpl extends PetriElementImpl implements Arc {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PetriNetPackage.ARC__JETONS_TRANSFÉRÉS:
-			return jetonsTransférés != JETONS_TRANSFÉRÉS_EDEFAULT;
+		case PetriNetPackage.ARC__JETONS_TRANSFERES:
+			return jetonsTransferes != JETONS_TRANSFERES_EDEFAULT;
 		case PetriNetPackage.ARC__TRANSITION:
 			return transition != null;
 		case PetriNetPackage.ARC__PLACE:
@@ -337,8 +337,8 @@ public class ArcImpl extends PetriElementImpl implements Arc {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (jetonsTransférés: ");
-		result.append(jetonsTransférés);
+		result.append(" (jetonsTransferes: ");
+		result.append(jetonsTransferes);
 		result.append(", Direction: ");
 		result.append(direction);
 		result.append(')');

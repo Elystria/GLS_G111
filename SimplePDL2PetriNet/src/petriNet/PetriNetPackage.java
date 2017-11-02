@@ -5,6 +5,7 @@ package petriNet;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -22,6 +23,8 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see petriNet.PetriNetFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore#/'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface PetriNetPackage extends EPackage {
@@ -141,13 +144,22 @@ public interface PetriNetPackage extends EPackage {
 	int TRANSITION_FEATURE_COUNT = PETRI_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>New Operation1</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION___NEW_OPERATION1 = PETRI_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_OPERATION_COUNT = PETRI_ELEMENT_OPERATION_COUNT + 0;
+	int TRANSITION_OPERATION_COUNT = PETRI_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link petriNet.impl.PlaceImpl <em>Place</em>}' class.
@@ -233,13 +245,13 @@ public interface PetriNetPackage extends EPackage {
 	int ARC__NAME = PETRI_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Jetons Transférés</b></em>' attribute.
+	 * The feature id for the '<em><b>Jetons Transferes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARC__JETONS_TRANSFÉRÉS = PETRI_ELEMENT_FEATURE_COUNT + 0;
+	int ARC__JETONS_TRANSFERES = PETRI_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Transition</b></em>' reference.
@@ -396,6 +408,16 @@ public interface PetriNetPackage extends EPackage {
 	EReference getTransition_ArcEntrants();
 
 	/**
+	 * Returns the meta object for the '{@link petriNet.Transition#newOperation1() <em>New Operation1</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>New Operation1</em>' operation.
+	 * @see petriNet.Transition#newOperation1()
+	 * @generated
+	 */
+	EOperation getTransition__NewOperation1();
+
+	/**
 	 * Returns the meta object for class '{@link petriNet.Place <em>Place</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -449,15 +471,15 @@ public interface PetriNetPackage extends EPackage {
 	EClass getArc();
 
 	/**
-	 * Returns the meta object for the attribute '{@link petriNet.Arc#getJetonsTransférés <em>Jetons Transférés</em>}'.
+	 * Returns the meta object for the attribute '{@link petriNet.Arc#getJetonsTransferes <em>Jetons Transferes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Jetons Transférés</em>'.
-	 * @see petriNet.Arc#getJetonsTransférés()
+	 * @return the meta object for the attribute '<em>Jetons Transferes</em>'.
+	 * @see petriNet.Arc#getJetonsTransferes()
 	 * @see #getArc()
 	 * @generated
 	 */
-	EAttribute getArc_JetonsTransférés();
+	EAttribute getArc_JetonsTransferes();
 
 	/**
 	 * Returns the meta object for the reference '{@link petriNet.Arc#getTransition <em>Transition</em>}'.
@@ -602,6 +624,14 @@ public interface PetriNetPackage extends EPackage {
 		EReference TRANSITION__ARC_ENTRANTS = eINSTANCE.getTransition_ArcEntrants();
 
 		/**
+		 * The meta object literal for the '<em><b>New Operation1</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TRANSITION___NEW_OPERATION1 = eINSTANCE.getTransition__NewOperation1();
+
+		/**
 		 * The meta object literal for the '{@link petriNet.impl.PlaceImpl <em>Place</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -646,12 +676,12 @@ public interface PetriNetPackage extends EPackage {
 		EClass ARC = eINSTANCE.getArc();
 
 		/**
-		 * The meta object literal for the '<em><b>Jetons Transférés</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Jetons Transferes</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ARC__JETONS_TRANSFÉRÉS = eINSTANCE.getArc_JetonsTransférés();
+		EAttribute ARC__JETONS_TRANSFERES = eINSTANCE.getArc_JetonsTransferes();
 
 		/**
 		 * The meta object literal for the '<em><b>Transition</b></em>' reference feature.

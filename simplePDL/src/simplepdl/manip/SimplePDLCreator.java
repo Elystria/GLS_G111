@@ -36,7 +36,7 @@ public class SimplePDLCreator {
 		ResourceSet resSet = new ResourceSetImpl();
 
 		// DÃ©finir la ressource (le modÃ¨le)
-		URI modelURI = URI.createURI("models/SimplePDLCreator_Created_Process2.xmi");
+		URI modelURI = URI.createURI("models/SimplePDLCreator_Created_Process4.xmi");
 		Resource resource = resSet.createResource(modelURI);
 		
 		// La fabrique pour fabriquer les Ã©lÃ©ments de SimplePDL

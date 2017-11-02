@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see petriNet.PetriNetPackage#getPlace()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='presenceDeJetons'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot presenceDeJetons='nbJetons &gt;= 0'"
  * @generated
  */
 public interface Place extends PetriElement {

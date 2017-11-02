@@ -2,6 +2,7 @@
  */
 package petriNet.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
@@ -97,6 +98,17 @@ public class TransitionImpl extends PetriElementImpl implements Transition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void newOperation1() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -161,6 +173,21 @@ public class TransitionImpl extends PetriElementImpl implements Transition {
 			return arcEntrants != null && !arcEntrants.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case PetriNetPackage.TRANSITION___NEW_OPERATION1:
+			newOperation1();
+			return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //TransitionImpl

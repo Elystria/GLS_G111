@@ -11,42 +11,43 @@ package petriNet;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link petriNet.Arc#getJetonsTransférés <em>Jetons Transférés</em>}</li>
+ *   <li>{@link petriNet.Arc#getJetonsTransferes <em>Jetons Transferes</em>}</li>
  *   <li>{@link petriNet.Arc#getTransition <em>Transition</em>}</li>
  *   <li>{@link petriNet.Arc#getPlace <em>Place</em>}</li>
  *   <li>{@link petriNet.Arc#getDirection <em>Direction</em>}</li>
  * </ul>
  *
  * @see petriNet.PetriNetPackage#getArc()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='presenceDeJetonsTransferes'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot presenceDeJetonsTransferes='jetonsTransferes &gt;= 0'"
  * @generated
  */
 public interface Arc extends PetriElement {
 	/**
-	 * Returns the value of the '<em><b>Jetons Transférés</b></em>' attribute.
+	 * Returns the value of the '<em><b>Jetons Transferes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Jetons Transférés</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Jetons Transferes</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Jetons Transférés</em>' attribute.
-	 * @see #setJetonsTransférés(int)
-	 * @see petriNet.PetriNetPackage#getArc_JetonsTransférés()
+	 * @return the value of the '<em>Jetons Transferes</em>' attribute.
+	 * @see #setJetonsTransferes(int)
+	 * @see petriNet.PetriNetPackage#getArc_JetonsTransferes()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getJetonsTransférés();
+	int getJetonsTransferes();
 
 	/**
-	 * Sets the value of the '{@link petriNet.Arc#getJetonsTransférés <em>Jetons Transférés</em>}' attribute.
+	 * Sets the value of the '{@link petriNet.Arc#getJetonsTransferes <em>Jetons Transferes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Jetons Transférés</em>' attribute.
-	 * @see #getJetonsTransférés()
+	 * @param value the new value of the '<em>Jetons Transferes</em>' attribute.
+	 * @see #getJetonsTransferes()
 	 * @generated
 	 */
-	void setJetonsTransférés(int value);
+	void setJetonsTransferes(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Transition</b></em>' reference.

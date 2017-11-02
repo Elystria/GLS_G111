@@ -8,7 +8,8 @@
   <processElements
       xsi:type="simplepdl:WorkDefinition"
       linksToSuccessors="//@processElements.2"
-      name="A"/>
+      name="A"
+      linktoresource="//@processElements.4"/>
   <processElements
       xsi:type="simplepdl:WorkDefinition"
       linksToPredecessors="//@processElements.2"
@@ -17,4 +18,14 @@
       xsi:type="simplepdl:WorkSequence"
       predecessor="//@processElements.0"
       successor="//@processElements.1"/>
+  <processElements
+      xsi:type="simplepdl:Resources"
+      quantite="3"
+      linktoresource="//@processElements.4"
+      name="Pingouin"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="2"
+      resources="//@processElements.3"
+      workdefinition="//@processElements.0"/>
 </simplepdl:Process>

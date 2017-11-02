@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see petriNet.PetriNetPackage#getPetriElement()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nomUnique auMoins1Caractere'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nomUnique='PetriElement.allInstances()-&gt;\n\t\t\tforAll(pe | pe &lt;&gt; self implies pe.name &lt;&gt; name)' auMoins1Caractere='name.size() &gt;= 1'"
  * @generated
  */
 public interface PetriElement extends EObject {

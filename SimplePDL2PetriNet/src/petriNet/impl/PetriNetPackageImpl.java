@@ -5,9 +5,11 @@ package petriNet.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import petriNet.Arc;
@@ -18,6 +20,7 @@ import petriNet.PetriNetPackage;
 import petriNet.PetriNetwork;
 import petriNet.Place;
 import petriNet.Transition;
+import petriNet.util.PetriNetValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -123,6 +126,13 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 		// Initialize created meta-data
 		thePetriNetPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put(thePetriNetPackage, new EValidator.Descriptor() {
+			public EValidator getEValidator() {
+				return PetriNetValidator.INSTANCE;
+			}
+		});
+
 		// Mark meta-data to indicate it can't be changed
 		thePetriNetPackage.freeze();
 
@@ -181,6 +191,15 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTransition__NewOperation1() {
+		return transitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPlace() {
 		return placeEClass;
 	}
@@ -226,7 +245,7 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArc_JetonsTransférés() {
+	public EAttribute getArc_JetonsTransferes() {
 		return (EAttribute) arcEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -328,6 +347,7 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 		transitionEClass = createEClass(TRANSITION);
 		createEReference(transitionEClass, TRANSITION__ARC_SORTANTS);
 		createEReference(transitionEClass, TRANSITION__ARC_ENTRANTS);
+		createEOperation(transitionEClass, TRANSITION___NEW_OPERATION1);
 
 		placeEClass = createEClass(PLACE);
 		createEAttribute(placeEClass, PLACE__NB_JETONS);
@@ -335,7 +355,7 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 		createEReference(placeEClass, PLACE__ARC_SORTANTS);
 
 		arcEClass = createEClass(ARC);
-		createEAttribute(arcEClass, ARC__JETONS_TRANSFÉRÉS);
+		createEAttribute(arcEClass, ARC__JETONS_TRANSFERES);
 		createEReference(arcEClass, ARC__TRANSITION);
 		createEReference(arcEClass, ARC__PLACE);
 		createEAttribute(arcEClass, ARC__DIRECTION);
@@ -396,6 +416,8 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getTransition__NewOperation1(), null, "newOperation1", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(placeEClass, Place.class, "Place", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlace_NbJetons(), ecorePackage.getEInt(), "nbJetons", null, 1, 1, Place.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -407,7 +429,7 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(arcEClass, Arc.class, "Arc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getArc_JetonsTransférés(), ecorePackage.getEInt(), "jetonsTransférés", null, 1, 1, Arc.class,
+		initEAttribute(getArc_JetonsTransferes(), ecorePackage.getEInt(), "jetonsTransferes", null, 1, 1, Arc.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArc_Transition(), this.getTransition(), null, "transition", null, 1, 1, Arc.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -433,6 +455,60 @@ public class PetriNetPackageImpl extends EPackageImpl implements PetriNetPackage
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/OCL/Import
+		createImportAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createImportAnnotations() {
+		String source = "http://www.eclipse.org/OCL/Import";
+		addAnnotation(this, source, new String[] { "ecore", "http://www.eclipse.org/emf/2002/Ecore#/" });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation(this, source,
+				new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+						"settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
+						"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
+		addAnnotation(petriElementEClass, source, new String[] { "constraints", "nomUnique auMoins1Caractere" });
+		addAnnotation(placeEClass, source, new String[] { "constraints", "presenceDeJetons" });
+		addAnnotation(arcEClass, source, new String[] { "constraints", "presenceDeJetonsTransferes" });
+		addAnnotation(petriNetworkEClass, source, new String[] { "constraints", "nameNetworkExists" });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+		addAnnotation(petriElementEClass, source,
+				new String[] { "nomUnique",
+						"PetriElement.allInstances()->\n\t\t\tforAll(pe | pe <> self implies pe.name <> name)",
+						"auMoins1Caractere", "name.size() >= 1" });
+		addAnnotation(placeEClass, source, new String[] { "presenceDeJetons", "nbJetons >= 0" });
+		addAnnotation(arcEClass, source, new String[] { "presenceDeJetonsTransferes", "jetonsTransferes >= 0" });
+		addAnnotation(petriNetworkEClass, source, new String[] { "nameNetworkExists", "name.size() >= 1" });
 	}
 
 } //PetriNetPackageImpl

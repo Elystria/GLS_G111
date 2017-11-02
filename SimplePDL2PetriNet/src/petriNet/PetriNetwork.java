@@ -20,7 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see petriNet.PetriNetPackage#getPetriNetwork()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameNetworkExists'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameNetworkExists='name.size() &gt;= 1'"
  * @generated
  */
 public interface PetriNetwork extends EObject {

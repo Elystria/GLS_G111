@@ -54,4 +54,12 @@ public interface Transition extends PetriElement {
 	 */
 	EList<Arc> getArcEntrants();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void newOperation1();
+
 } // Transition
