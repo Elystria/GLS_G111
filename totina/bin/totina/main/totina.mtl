@@ -14,11 +14,11 @@ net [aPetriNetwork.name/]
 
 [for (t : Transition | aPetriNetwork.petrielement->getTransitions())]
 	tr [t.name/]
-	[for (arc : Arc | aPetriNetwork.petrielement->getArcArrivant(t))]
+	[for (arc : Arc | aPetriNetwork.petrielement->getArcArrivant(t)) ]
 		[arc.place.name/]*[arc.jetonsTransferes/]
 	[/for]
-	->
-	[for (arc : Arc | aPetriNetwork.petrielement->getArcSortant(t))]
+		->
+	[for (arc : Arc | aPetriNetwork.petrielement->getArcSortant(t)) ]
 		[arc.place.name/]*[arc.jetonsTransferes/]
 	[/for]
 [/for]
