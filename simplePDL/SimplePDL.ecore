@@ -90,4 +90,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="workdefinition" lowerBound="1"
         eType="#//WorkDefinition" eOpposite="#//WorkDefinition/linktoresource"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GuidanceLink" eSuperTypes="#//ProcessElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guidance" lowerBound="1"
+        eType="#//Guidance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workdefinition" lowerBound="1"
+        eType="#//WorkDefinition"/>
+  </eClassifiers>
 </ecore:EPackage>
