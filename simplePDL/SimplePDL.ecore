@@ -45,10 +45,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkSequence" eSuperTypes="#//ProcessElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="sensUnique"/>
+      <details key="constraints" value="nonReflexif nonBlocage"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="sensUnique" value="WorkSequence.allInstances()->&#xA;&#x9;&#x9;forAll(ws | ws &lt;> self implies (ws.successor &lt;> predecessor) or  (ws.predecessor &lt;> successor))"/>
+      <details key="nonReflexif" value="WorkSequence.allInstances()->&#xA;&#x9;&#x9;forAll(ws | ws = self implies (ws.predecessor &lt;> ws.successor))"/>
+      <details key="nonBlocage" value="WorkSequence.allInstances()->&#xA;&#x9;&#x9;forAll(ws1, ws2 | (ws1 &lt;> ws2 and ws1.predecessor = ws2.successor and ws1.successor = ws2.predecessor) &#xA;&#x9;&#x9;&#x9;implies (ws1.linkType &lt;> ws2.linkType))"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkType" lowerBound="1"
         eType="#//WorkSequenceType"/>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    xsi:schemaLocation="http://simplepdl ../SimplePDL.ecore"
+    name="Projet">
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToSuccessors="//@processElements.5 //@processElements.1 //@processElements.3 //@processElements.4"
+      name="Conception"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      predecessor="//@processElements.0"
+      successor="//@processElements.7"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToFinish"
+      predecessor="//@processElements.6"
+      successor="//@processElements.8"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToStart"
+      predecessor="//@processElements.0"
+      successor="//@processElements.6"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      predecessor="//@processElements.0"
+      successor="//@processElements.8"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToFinish"
+      predecessor="//@processElements.0"
+      successor="//@processElements.7"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.3"
+      linksToSuccessors="//@processElements.2"
+      name="Developpement"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.5 //@processElements.1"
+      name="RedactionDoc"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.4 //@processElements.2"
+      name="RedactionTests"/>
+</simplepdl:Process>
