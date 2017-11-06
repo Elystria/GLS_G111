@@ -1,0 +1,11 @@
+# Terminaison
+[] <> RedactionTests_finished;
+[] <> Developpement_finished;
+[] <> RedactionDoc_finished;
+[] <> Conception_finished;
+
+# Être dans un seul état à la fois
+[] (Conception_ready + Conception_running + Conception_finished = 1);
+[] (RedactionDoc_ready + RedactionDoc_running + RedactionDoc_finished = 1);
+[] (Developpement_ready + Developpement_running + Developpement_finished = 1);
+[] (RedactionTests_ready + RedactionTests_running + RedactionTests_finished = 1);

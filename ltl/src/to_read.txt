@@ -1,0 +1,8 @@
+La réponse qui dit comment engendrer le code :
+http://people.irisa.fr/Benoit.Combemale/research/phd/2007/idm07-CCBV-slide.pdf
+La syntaxe ltl
+http://queinnec.perso.enseeiht.fr/Ens/ST/ltl.pdf
+Le sujet du be, le problème c'est qu'il n'est pas clair. Donc on ne sait pas dans quel fichier il faut générer ces propriétés ltl ...
+http://cregut.perso.enseeiht.fr/ENS/2017-2in-gls/CONTENU/gls-2in-2017-be-01-sujet.pdf
+Le tp permettant de compiler totina
+http://cregut.perso.enseeiht.fr/ENS/2017-2in-gls/CONTENU/gls-2in-2017-tp-05-sujet.pdf
