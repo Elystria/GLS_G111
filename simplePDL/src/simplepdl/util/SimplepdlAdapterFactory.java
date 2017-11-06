@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import simplepdl.Guidance;
+import simplepdl.GuidanceLink;
 import simplepdl.ProcessElement;
 import simplepdl.RequeteDeRessource;
 import simplepdl.Resources;
@@ -100,6 +101,10 @@ public class SimplepdlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRequeteDeRessource(RequeteDeRessource object) {
 				return createRequeteDeRessourceAdapter();
+			}
+			@Override
+			public Adapter caseGuidanceLink(GuidanceLink object) {
+				return createGuidanceLinkAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -216,6 +221,20 @@ public class SimplepdlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRequeteDeRessourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simplepdl.GuidanceLink <em>Guidance Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simplepdl.GuidanceLink
+	 * @generated
+	 */
+	public Adapter createGuidanceLinkAdapter() {
 		return null;
 	}
 

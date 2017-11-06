@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import simplepdl.Guidance;
+import simplepdl.GuidanceLink;
 import simplepdl.ProcessElement;
 import simplepdl.RequeteDeRessource;
 import simplepdl.Resources;
@@ -78,6 +79,13 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 	 * @generated
 	 */
 	private EClass requeteDeRessourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass guidanceLinkEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -377,6 +385,33 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGuidanceLink() {
+		return guidanceLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGuidanceLink_Guidance() {
+		return (EReference)guidanceLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGuidanceLink_Workdefinition() {
+		return (EReference)guidanceLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getWorkSequenceType() {
 		return workSequenceTypeEEnum;
 	}
@@ -440,6 +475,10 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		createEReference(requeteDeRessourceEClass, REQUETE_DE_RESSOURCE__RESOURCES);
 		createEReference(requeteDeRessourceEClass, REQUETE_DE_RESSOURCE__WORKDEFINITION);
 
+		guidanceLinkEClass = createEClass(GUIDANCE_LINK);
+		createEReference(guidanceLinkEClass, GUIDANCE_LINK__GUIDANCE);
+		createEReference(guidanceLinkEClass, GUIDANCE_LINK__WORKDEFINITION);
+
 		// Create enums
 		workSequenceTypeEEnum = createEEnum(WORK_SEQUENCE_TYPE);
 	}
@@ -477,6 +516,7 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		guidanceEClass.getESuperTypes().add(this.getProcessElement());
 		resourcesEClass.getESuperTypes().add(this.getProcessElement());
 		requeteDeRessourceEClass.getESuperTypes().add(this.getProcessElement());
+		guidanceLinkEClass.getESuperTypes().add(this.getProcessElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(processEClass, simplepdl.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -509,6 +549,10 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		initEAttribute(getRequeteDeRessource_Quantite(), ecorePackage.getEInt(), "quantite", null, 1, 1, RequeteDeRessource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRequeteDeRessource_Resources(), this.getResources(), this.getResources_Linktoresource(), "resources", null, 1, 1, RequeteDeRessource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRequeteDeRessource_Workdefinition(), this.getWorkDefinition(), this.getWorkDefinition_Linktoresource(), "workdefinition", null, 1, 1, RequeteDeRessource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(guidanceLinkEClass, GuidanceLink.class, "GuidanceLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGuidanceLink_Guidance(), this.getGuidance(), null, "guidance", null, 1, 1, GuidanceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGuidanceLink_Workdefinition(), this.getWorkDefinition(), null, "workdefinition", null, 1, 1, GuidanceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(workSequenceTypeEEnum, WorkSequenceType.class, "WorkSequenceType");
@@ -577,7 +621,7 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		  (workSequenceEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "sensUnique"
+			 "constraints", "nonReflexif nonBlocage"
 		   });	
 		addAnnotation
 		  (resourcesEClass, 
@@ -619,7 +663,8 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		  (workSequenceEClass, 
 		   source, 
 		   new String[] {
-			 "sensUnique", "WorkSequence.allInstances()->\n\t\tforAll(ws | ws <> self implies (ws.successor <> predecessor) or  (ws.predecessor <> successor))"
+			 "nonReflexif", "WorkSequence.allInstances()->\n\t\tforAll(ws | ws = self implies (ws.predecessor <> ws.successor))",
+			 "nonBlocage", "WorkSequence.allInstances()->\n\t\tforAll(ws1, ws2 | (ws1 <> ws2 and ws1.predecessor = ws2.successor and ws1.successor = ws2.predecessor) \n\t\t\timplies (ws1.linkType <> ws2.linkType))"
 		   });	
 		addAnnotation
 		  (resourcesEClass, 

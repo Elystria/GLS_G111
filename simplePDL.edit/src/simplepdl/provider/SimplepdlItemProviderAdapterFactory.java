@@ -210,6 +210,29 @@ public class SimplepdlItemProviderAdapterFactory extends SimplepdlAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link simplepdl.GuidanceLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GuidanceLinkItemProvider guidanceLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link simplepdl.GuidanceLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGuidanceLinkAdapter() {
+		if (guidanceLinkItemProvider == null) {
+			guidanceLinkItemProvider = new GuidanceLinkItemProvider(this);
+		}
+
+		return guidanceLinkItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -314,6 +337,7 @@ public class SimplepdlItemProviderAdapterFactory extends SimplepdlAdapterFactory
 		if (guidanceItemProvider != null) guidanceItemProvider.dispose();
 		if (resourcesItemProvider != null) resourcesItemProvider.dispose();
 		if (requeteDeRessourceItemProvider != null) requeteDeRessourceItemProvider.dispose();
+		if (guidanceLinkItemProvider != null) guidanceLinkItemProvider.dispose();
 	}
 
 }
