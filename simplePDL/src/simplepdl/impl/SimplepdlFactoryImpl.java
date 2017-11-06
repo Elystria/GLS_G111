@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import simplepdl.Guidance;
+import simplepdl.GuidanceLink;
 import simplepdl.RequeteDeRessource;
 import simplepdl.Resources;
 import simplepdl.SimplepdlFactory;
@@ -70,6 +71,7 @@ public class SimplepdlFactoryImpl extends EFactoryImpl implements SimplepdlFacto
 			case SimplepdlPackage.GUIDANCE: return createGuidance();
 			case SimplepdlPackage.RESOURCES: return createResources();
 			case SimplepdlPackage.REQUETE_DE_RESSOURCE: return createRequeteDeRessource();
+			case SimplepdlPackage.GUIDANCE_LINK: return createGuidanceLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -163,6 +165,16 @@ public class SimplepdlFactoryImpl extends EFactoryImpl implements SimplepdlFacto
 	public RequeteDeRessource createRequeteDeRessource() {
 		RequeteDeRessourceImpl requeteDeRessource = new RequeteDeRessourceImpl();
 		return requeteDeRessource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GuidanceLink createGuidanceLink() {
+		GuidanceLinkImpl guidanceLink = new GuidanceLinkImpl();
+		return guidanceLink;
 	}
 
 	/**
