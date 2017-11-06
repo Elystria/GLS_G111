@@ -4,12 +4,12 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:simplepdl="http://simplepdl"
-    xsi:schemaLocation="http://simplepdl ../SimplePDL.ecore"
     name="Projet">
   <processElements
       xsi:type="simplepdl:WorkDefinition"
       linksToSuccessors="//@processElements.5 //@processElements.1 //@processElements.3 //@processElements.4"
-      name="Conception"/>
+      name="Conception"
+      linktoresource="//@processElements.10 //@processElements.15"/>
   <processElements
       xsi:type="simplepdl:WorkSequence"
       predecessor="//@processElements.0"
@@ -37,13 +37,81 @@
       xsi:type="simplepdl:WorkDefinition"
       linksToPredecessors="//@processElements.3"
       linksToSuccessors="//@processElements.2"
-      name="Developpement"/>
+      name="Developpement"
+      linktoresource="//@processElements.14 //@processElements.21"/>
   <processElements
       xsi:type="simplepdl:WorkDefinition"
       linksToPredecessors="//@processElements.5 //@processElements.1"
-      name="RedactionDoc"/>
+      name="RedactionDoc"
+      linktoresource="//@processElements.16 //@processElements.11"/>
   <processElements
       xsi:type="simplepdl:WorkDefinition"
       linksToPredecessors="//@processElements.4 //@processElements.2"
-      name="RedactionTests"/>
+      name="RedactionTests"
+      linktoresource="//@processElements.13 //@processElements.12"/>
+  <processElements
+      xsi:type="simplepdl:Resources"
+      quantite="3"
+      linktoresource="//@processElements.10"
+      name="Concepteur"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="2"
+      resources="//@processElements.9"
+      workdefinition="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="1"
+      resources="//@processElements.20"
+      workdefinition="//@processElements.7"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="1"
+      resources="//@processElements.17"
+      workdefinition="//@processElements.8"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="2"
+      resources="//@processElements.19"
+      workdefinition="//@processElements.8"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="2"
+      resources="//@processElements.18"
+      workdefinition="//@processElements.6"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="2"
+      resources="//@processElements.19"
+      workdefinition="//@processElements.0"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="1"
+      resources="//@processElements.19"
+      workdefinition="//@processElements.7"/>
+  <processElements
+      xsi:type="simplepdl:Resources"
+      quantite="2"
+      linktoresource="//@processElements.12"
+      name="Testeur"/>
+  <processElements
+      xsi:type="simplepdl:Resources"
+      quantite="2"
+      linktoresource="//@processElements.14"
+      name="Developpeur"/>
+  <processElements
+      xsi:type="simplepdl:Resources"
+      quantite="4"
+      linktoresource="//@processElements.15 //@processElements.16 //@processElements.21 //@processElements.13"
+      name="Machine"/>
+  <processElements
+      xsi:type="simplepdl:Resources"
+      quantite="1"
+      linktoresource="//@processElements.11"
+      name="Redacteur"/>
+  <processElements
+      xsi:type="simplepdl:RequeteDeRessource"
+      quantite="3"
+      resources="//@processElements.19"
+      workdefinition="//@processElements.6"/>
 </simplepdl:Process>
