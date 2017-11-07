@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<petriNet:PetriNetwork xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petriNet="http://www.example.org/petriNet" name="developpement">
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.46" place="//@petrielement.30"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.46" place="//@petrielement.32" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.46" place="//@petrielement.31" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.47" place="//@petrielement.31"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.47" place="//@petrielement.33" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.48" place="//@petrielement.34"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.48" place="//@petrielement.36" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.48" place="//@petrielement.35" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.49" place="//@petrielement.35"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.49" place="//@petrielement.37" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.50" place="//@petrielement.38"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.50" place="//@petrielement.40" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.50" place="//@petrielement.39" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.51" place="//@petrielement.39"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.51" place="//@petrielement.41" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.52" place="//@petrielement.42"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.52" place="//@petrielement.44" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.52" place="//@petrielement.43" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.53" place="//@petrielement.43"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.53" place="//@petrielement.45" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.48" place="//@petrielement.32"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.48" place="//@petrielement.32" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.52" place="//@petrielement.32"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.52" place="//@petrielement.32" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.50" place="//@petrielement.33"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.50" place="//@petrielement.33" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.49" place="//@petrielement.33"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.49" place="//@petrielement.33" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.53" place="//@petrielement.41"/>
+  <petrielement xsi:type="petriNet:Arc" jetonsTransferes="1" transition="//@petrielement.53" place="//@petrielement.41" Direction="T2P"/>
+  <petrielement xsi:type="petriNet:Place" name="Conception_ready" nbJetons="1"/>
+  <petrielement xsi:type="petriNet:Place" name="Conception_running"/>
+  <petrielement xsi:type="petriNet:Place" name="Conception_started"/>
+  <petrielement xsi:type="petriNet:Place" name="Conception_finished"/>
+  <petrielement xsi:type="petriNet:Place" name="RedactionDoc_ready" nbJetons="1"/>
+  <petrielement xsi:type="petriNet:Place" name="RedactionDoc_running"/>
+  <petrielement xsi:type="petriNet:Place" name="RedactionDoc_started"/>
+  <petrielement xsi:type="petriNet:Place" name="RedactionDoc_finished"/>
+  <petrielement xsi:type="petriNet:Place" name="Developpement_ready" nbJetons="1"/>
+  <petrielement xsi:type="petriNet:Place" name="Developpement_running"/>
+  <petrielement xsi:type="petriNet:Place" name="Developpement_started"/>
+  <petrielement xsi:type="petriNet:Place" name="Developpement_finished"/>
+  <petrielement xsi:type="petriNet:Place" name="RedactionTests_ready" nbJetons="1"/>
+  <petrielement xsi:type="petriNet:Place" name="RedactionTests_running"/>
+  <petrielement xsi:type="petriNet:Place" name="RedactionTests_started"/>
+  <petrielement xsi:type="petriNet:Place" name="RedactionTests_finished"/>
+  <petrielement xsi:type="petriNet:Transition" name="Conception_starts"/>
+  <petrielement xsi:type="petriNet:Transition" name="Conception_finishes"/>
+  <petrielement xsi:type="petriNet:Transition" name="RedactionDoc_starts"/>
+  <petrielement xsi:type="petriNet:Transition" name="RedactionDoc_finishes"/>
+  <petrielement xsi:type="petriNet:Transition" name="Developpement_starts"/>
+  <petrielement xsi:type="petriNet:Transition" name="Developpement_finishes"/>
+  <petrielement xsi:type="petriNet:Transition" name="RedactionTests_starts"/>
+  <petrielement xsi:type="petriNet:Transition" name="RedactionTests_finishes"/>
+</petriNet:PetriNetwork>
