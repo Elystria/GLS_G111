@@ -15,4 +15,5 @@
   <processElements xsi:type="simplepdl:WorkSequence" predecessor="//@processElements.10" successor="//@processElements.11"/>
   <processElements xsi:type="simplepdl:Guidance" text="Blablabla"/>
   <processElements xsi:type="simplepdl:WorkSequence" linkType="startToFinish" predecessor="//@processElements.11" successor="//@processElements.10"/>
+  <processElements xsi:type="simplepdl:GuidanceLink" guidance="//@processElements.13" workdefinition="//@processElements.0"/>
 </simplepdl:Process>

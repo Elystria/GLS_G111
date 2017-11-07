@@ -76,6 +76,15 @@ public interface SimplepdlFactory extends EFactory {
 	RequeteDeRessource createRequeteDeRessource();
 
 	/**
+	 * Returns a new object of class '<em>Guidance Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Guidance Link</em>'.
+	 * @generated
+	 */
+	GuidanceLink createGuidanceLink();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
