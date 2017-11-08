@@ -64,7 +64,7 @@ public class ArcItemProvider extends PetriElementItemProvider {
 						getResourceLocator(), getString("_UI_Arc_jetonsTransférés_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Arc_jetonsTransférés_feature",
 								"_UI_Arc_type"),
-						PetriNetPackage.Literals.ARC__JETONS_TRANSFÉRÉS, true, false, false,
+						PetriNetPackage.Literals.ARC__JETONS_TRANSFERES, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
@@ -157,7 +157,7 @@ public class ArcItemProvider extends PetriElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Arc.class)) {
-		case PetriNetPackage.ARC__JETONS_TRANSFÉRÉS:
+		case PetriNetPackage.ARC__JETONS_TRANSFERES:
 		case PetriNetPackage.ARC__DIRECTION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

@@ -5,7 +5,6 @@
     <semanticResources>petriNet.genmodel</semanticResources>
     <semanticResources>petriNet.xmi</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
-    <semanticResources>../src-gen/PetriNetworkSample.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_nIapgKmdEeefQY55u37S_Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_nIvZpamdEeefQY55u37S_Q" name="petriNet" repPath="#_nIvZoKmdEeefQY55u37S_Q">

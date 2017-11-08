@@ -1,0 +1,37 @@
+net MonPremierProcessus
+
+	pl A_ready (1)
+	pl A_running (0)
+	pl A_started (0)
+	pl A_finished (0)
+	pl B_ready (1)
+	pl B_running (0)
+	pl B_started (0)
+	pl B_finished (0)
+	pl Pingouin_stock (3)
+
+	tr A_starts
+		A_ready*1
+		Pingouin_stock*2
+		->
+		A_started*1
+		A_running*1
+	tr A_finishes
+		A_running*1
+		->
+		A_finished*1
+		Pingouin_stock*2
+	tr B_starts
+		B_ready*1
+		A_started*1
+		->
+		B_started*1
+		B_running*1
+		A_started*1
+	tr B_finishes
+		B_running*1
+		->
+		B_finished*1
+
+
+

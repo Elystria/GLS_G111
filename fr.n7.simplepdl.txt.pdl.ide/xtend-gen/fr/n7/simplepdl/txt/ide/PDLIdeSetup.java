@@ -3,22 +3,16 @@
  */
 package fr.n7.simplepdl.txt.ide;
 
-import com.google.inject.Guice;
 import com.google.inject.Injector;
-import fr.n7.simplepdl.txt.PDLRuntimeModule;
-import fr.n7.simplepdl.txt.PDLStandaloneSetup;
-import fr.n7.simplepdl.txt.ide.PDLIdeModule;
-import org.eclipse.xtext.util.Modules2;
 
 /**
  * Initialization support for running Xtext languages as language servers.
  */
 @SuppressWarnings("all")
-public class PDLIdeSetup extends PDLStandaloneSetup {
+public class PDLIdeSetup /* implements PDLStandaloneSetup  */{
   @Override
   public Injector createInjector() {
-    PDLRuntimeModule _pDLRuntimeModule = new PDLRuntimeModule();
-    PDLIdeModule _pDLIdeModule = new PDLIdeModule();
-    return Guice.createInjector(Modules2.mixin(_pDLRuntimeModule, _pDLIdeModule));
+    throw new Error("Unresolved compilation problems:"
+      + "\nPDLRuntimeModule cannot be resolved.");
   }
 }
