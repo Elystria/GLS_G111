@@ -1,0 +1,46 @@
+
+[comment encoding = UTF-8 /]
+[module toLTLverifEndProcess('http://simplepdl')]
+
+[comment Generation de la syntaxe PDL1 à partir d'un modèle de processus /]
+
+[template public toLTLverifEndProcess(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name.concat('.pdl1'), false, 'UTF-8')]
+# Terminaison
+[for (wd : WorkDefinition | aProcess.processElements->getWDs())]
+	['[] <>'/] [wd.name/]_finished;
+	['[]'/] [wd.name/]_finished => dead;
+	['[]'/] dead => [wd.name/]_finished;
+	['[] <>'/] dead;
+	['- <>'/] [wd.name/]_finished;
+[/for]
+
+# Etre dans un seul état à la fois
+[for (wd : WorkDefinition | aProcess.processElements->getWDs())]
+	['[] ('/] [wd.name/]_ready + [wd.name/]_running + [wd.name/]_finished = 1);
+	['[] ('/] [wd.name/]_ready + [wd.name/]_started = 1);
+[/for]
+
+[/file]
+[/template]
+
+[query public getWDs(elements : OrderedSet(ProcessElement)) : OrderedSet(WorkDefinition) = 
+	elements->select( e | e.oclIsTypeOf(WorkDefinition) )
+		->collect( e | e.oclAsType(WorkDefinition) )
+		->asOrderedSet()
+/]
+
+[query public getWSs(elements : OrderedSet(ProcessElement)) : OrderedSet(WorkSequence) = 
+	elements->select( e | e.oclIsTypeOf(WorkSequence) )
+		->collect( e | e.oclAsType(WorkSequence) )
+		->asOrderedSet()
+/]
+
+[template public getWSType(ws : WorkSequence)]
+[if (ws.linkType = WorkSequenceType::startToStart)]
+s2s[elseif (ws.linkType = WorkSequenceType::startToFinish)]
+s2f[elseif (ws.linkType = WorkSequenceType::finishToStart)]
+f2s[elseif (ws.linkType = WorkSequenceType::finishToFinish)]
+f2f[/if]
+[/template]

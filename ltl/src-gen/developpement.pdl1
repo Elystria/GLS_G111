@@ -1,0 +1,46 @@
+# Terminaison
+	[] <> Conception_finished;
+	[] Conception_finished => dead;
+	[] dead => Conception_finished;
+	[] <> dead;
+	- <> Conception_finished;
+	[] <> RedactionDoc_finished;
+	[] RedactionDoc_finished => dead;
+	[] dead => RedactionDoc_finished;
+	[] <> dead;
+	- <> RedactionDoc_finished;
+	[] <> Developpement_finished;
+	[] Developpement_finished => dead;
+	[] dead => Developpement_finished;
+	[] <> dead;
+	- <> Developpement_finished;
+	[] <> RedactionTests_finished;
+	[] RedactionTests_finished => dead;
+	[] dead => RedactionTests_finished;
+	[] <> dead;
+	- <> RedactionTests_finished;
+	[] <> A_finished;
+	[] A_finished => dead;
+	[] dead => A_finished;
+	[] <> dead;
+	- <> A_finished;
+	[] <> B_finished;
+	[] B_finished => dead;
+	[] dead => B_finished;
+	[] <> dead;
+	- <> B_finished;
+
+# Etre dans un seul état à la fois
+	[] ( Conception_ready + Conception_running + Conception_finished = 1);
+	[] ( Conception_ready + Conception_started = 1);
+	[] ( RedactionDoc_ready + RedactionDoc_running + RedactionDoc_finished = 1);
+	[] ( RedactionDoc_ready + RedactionDoc_started = 1);
+	[] ( Developpement_ready + Developpement_running + Developpement_finished = 1);
+	[] ( Developpement_ready + Developpement_started = 1);
+	[] ( RedactionTests_ready + RedactionTests_running + RedactionTests_finished = 1);
+	[] ( RedactionTests_ready + RedactionTests_started = 1);
+	[] ( A_ready + A_running + A_finished = 1);
+	[] ( A_ready + A_started = 1);
+	[] ( B_ready + B_running + B_finished = 1);
+	[] ( B_ready + B_started = 1);
+
