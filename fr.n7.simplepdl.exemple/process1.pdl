@@ -1,0 +1,5 @@
+Process monProcess {
+	wd A
+	wd B
+	ws s2s from A to B
+}
