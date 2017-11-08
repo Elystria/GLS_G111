@@ -1,8 +1,6 @@
 module SimplePDL2PetriNet;
 create OUT: petrinet from  IN: simplepdl;
 
--- TODO : nom des petrielements à ajouter ! (OCL)
-
 -- Obtenir le processus qui contient ce process element.
 -- Remarque: Ce helper ne serait pas utile si une r�f�rence opposite
 -- avait �t� plac�e entre Process et ProcessElement
@@ -53,30 +51,35 @@ rule WorkDefinition2PetriNet {
 				--net <- wd.getProcess()),
 				
 		a_ready2starts: petrinet!Arc(
+			name <- wd.name + '_ready2starts',
 				place <- p_ready,
 				transition <- t_starts,
 				Direction <- #P2T,
 				jetonsTransferes <- 1),
 				--net <- wd.getProcess()),
 		a_starts2started: petrinet!Arc(
+				name <- wd.name + '_starts2started',
 				transition <- t_starts,
 				place <- p_started,
 				Direction <- #T2P,
 				jetonsTransferes <- 1),
 				--net <- wd.getProcess()),
 		a_starts2running: petrinet!Arc(
+				name <- wd.name + '_starts2running',
 				transition <- t_starts,
 				place <- p_running,
 				Direction <- #T2P,
 				jetonsTransferes <- 1),
 				--net <- wd.getProcess()),
 		a_running2finishes: petrinet!Arc(
+				name <- wd.name + '_running2finishes',
 				place <- p_running,
 				transition <- t_finishes,
 				Direction <- #P2T,
 				jetonsTransferes <- 1),
 				--net <- wd.getProcess()),
 		a_finishes2finished: petrinet!Arc(
+				name <- wd.name + '_finishes2finished',
 				transition <- t_finishes,
 				place <- p_finished,
 				Direction <- #T2P,
@@ -91,11 +94,13 @@ rule WorkSequence2PetriNetS2S {
 	(ws.linkType = #startToStart)
 	to
 		a_s2s: petrinet!Arc(
+			name <- ws.predecessor.name + '--s2s->' + ws.successor.name,
 			place <- thisModule.resolveTemp(ws.predecessor, 'p_started'),
 			transition <- thisModule.resolveTemp(ws.successor, 't_starts'),
 			Direction <- #P2T,
 			jetonsTransferes <- 1),
 		a_s2sBack: petrinet!Arc(
+			name <- ws.predecessor.name + '--s2sBack->' + ws.successor.name,
 			place <- thisModule.resolveTemp(ws.predecessor, 'p_started'),
 			transition <- thisModule.resolveTemp(ws.successor, 't_starts'),
 			Direction <- #T2P,
@@ -107,11 +112,13 @@ rule WorkSequence2PetriNetF2S {
 	(ws.linkType = #finishToStart)
 	to		
 		a_f2s: petrinet!Arc(
+			name <- ws.predecessor.name + '--f2s->' + ws.successor.name,
 			place <- thisModule.resolveTemp(ws.predecessor, 'p_finished'),
 			transition <- thisModule.resolveTemp(ws.successor, 't_starts'),
 			Direction <- #P2T,
 			jetonsTransferes <- 1),
 		a_f2sBack: petrinet!Arc(
+			name <- ws.predecessor.name + '--f2sBack->' + ws.successor.name,
 			place <- thisModule.resolveTemp(ws.predecessor, 'p_finished'),
 			transition <- thisModule.resolveTemp(ws.successor, 't_starts'),
 			Direction <- #T2P,
@@ -123,11 +130,13 @@ rule WorkSequence2PetriNetS2F {
 	(ws.linkType = #startToFinish)
 	to	
 		a_s2f: petrinet!Arc(
+			name <- ws.predecessor.name + '--s2f->' + ws.successor.name,
 			place <- thisModule.resolveTemp(ws.predecessor, 'p_started'),
 			transition <- thisModule.resolveTemp(ws.successor, 't_finishes'),
 			Direction <- #P2T,
 			jetonsTransferes <- 1),
 		a_s2fBack: petrinet!Arc(
+			name <- ws.predecessor.name + '--s2fBack->' + ws.successor.name,
 			place <- thisModule.resolveTemp(ws.predecessor, 'p_started'),
 			transition <- thisModule.resolveTemp(ws.successor, 't_finishes'),
 			Direction <- #T2P,
@@ -139,11 +148,13 @@ rule WorkSequence2PetriNetF2F {
 	(ws.linkType = #finishToFinish)
 	to			
 		a_f2f: petrinet!Arc(
+			name <- ws.predecessor.name + '--f2f->' + ws.successor.name,
 			place <- thisModule.resolveTemp(ws.predecessor, 'p_finished'),
 			transition <- thisModule.resolveTemp(ws.successor, 't_finishes'),
 			Direction <- #P2T,
 			jetonsTransferes <- 1),
 		a_f2fBack: petrinet!Arc(
+			name <- ws.predecessor.name + '--f2fBack->' + ws.successor.name,
 			place <- thisModule.resolveTemp(ws.predecessor, 'p_finished'),
 			transition <- thisModule.resolveTemp(ws.successor, 't_finishes'),
 			Direction <- #T2P,
@@ -164,12 +175,14 @@ rule RequeteDeRessource2PetriNet {
 	from req_rsc: simplepdl!RequeteDeRessource
 	to
 		a_demande_rsc: petrinet!Arc(
+			name <- req_rsc.workdefinition.name + '--demande->' + req_rsc.resources.name,
 			place <- thisModule.resolveTemp(req_rsc.resources, 'p_rsc'),
 			transition <- thisModule.resolveTemp(req_rsc.workdefinition, 't_starts'),
 			Direction <- #P2T,
 			jetonsTransferes <- req_rsc.quantite),
 			
 		a_rendre_rsc: petrinet!Arc(
+			name <- req_rsc.resources.name + '--rend->' + req_rsc.workdefinition.name,
 			place <- thisModule.resolveTemp(req_rsc.resources, 'p_rsc'),
 			transition <- thisModule.resolveTemp(req_rsc.workdefinition, 't_finishes'),
 			Direction <- #T2P,
