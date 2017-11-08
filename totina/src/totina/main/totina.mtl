@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module totina('http://www.example.org/petriNet')]
 
-[comment Generation de la syntaxe PetriNet à partir d'un modèle de PetriNetwork /]
+[comment Generation d'un fichier .net a partir d'un réseau de Pétri /]
 
 [template public totina(aPetriNetwork : PetriNetwork)]
 [comment @main/]
@@ -13,14 +13,7 @@ net [aPetriNetwork.name/]
 [/for]
 
 [for (t : Transition | aPetriNetwork.petrielement->getTransitions())]
-	tr [t.name/]
-	[for (arc : Arc | aPetriNetwork.petrielement->getArcArrivant(t)) ]
-		[arc.place.name/]*[arc.jetonsTransferes/]
-	[/for]
-		->
-	[for (arc : Arc | aPetriNetwork.petrielement->getArcSortant(t)) ]
-		[arc.place.name/]*[arc.jetonsTransferes/]
-	[/for]
+	tr [t.name/] [for (arc : Arc | aPetriNetwork.petrielement->getArcArrivant(t)) ][arc.place.name/]*[arc.jetonsTransferes/] [/for]-> [for (arc : Arc | aPetriNetwork.petrielement->getArcSortant(t)) ][arc.place.name/]*[arc.jetonsTransferes/] [/for]
 [/for]
 
 
