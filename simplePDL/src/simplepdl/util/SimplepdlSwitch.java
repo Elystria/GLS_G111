@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import simplepdl.Guidance;
+import simplepdl.GuidanceLink;
 import simplepdl.ProcessElement;
 import simplepdl.RequeteDeRessource;
 import simplepdl.Resources;
@@ -119,6 +120,13 @@ public class SimplepdlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimplepdlPackage.GUIDANCE_LINK: {
+				GuidanceLink guidanceLink = (GuidanceLink)theEObject;
+				T result = caseGuidanceLink(guidanceLink);
+				if (result == null) result = caseProcessElement(guidanceLink);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -225,6 +233,21 @@ public class SimplepdlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRequeteDeRessource(RequeteDeRessource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Guidance Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Guidance Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGuidanceLink(GuidanceLink object) {
 		return null;
 	}
 

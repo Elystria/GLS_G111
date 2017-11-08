@@ -18,8 +18,8 @@ package simplepdl;
  * </ul>
  *
  * @see simplepdl.SimplepdlPackage#getWorkSequence()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='sensUnique'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot sensUnique='WorkSequence.allInstances()-&gt;\n\t\tforAll(ws | ws &lt;&gt; self implies (ws.successor &lt;&gt; predecessor) or  (ws.predecessor &lt;&gt; successor))'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nonReflexif nonBlocage'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nonReflexif='WorkSequence.allInstances()-&gt;\n\t\tforAll(ws | ws = self implies (ws.predecessor &lt;&gt; ws.successor))' nonBlocage='WorkSequence.allInstances()-&gt;\n\t\tforAll(ws1, ws2 | (ws1 &lt;&gt; ws2 and ws1.predecessor = ws2.successor and ws1.successor = ws2.predecessor) \n\t\t\timplies (ws1.linkType &lt;&gt; ws2.linkType))'"
  * @generated
  */
 public interface WorkSequence extends ProcessElement {

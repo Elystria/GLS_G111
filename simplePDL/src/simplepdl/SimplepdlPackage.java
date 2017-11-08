@@ -409,6 +409,52 @@ public interface SimplepdlPackage extends EPackage {
 	int REQUETE_DE_RESSOURCE_OPERATION_COUNT = PROCESS_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link simplepdl.impl.GuidanceLinkImpl <em>Guidance Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simplepdl.impl.GuidanceLinkImpl
+	 * @see simplepdl.impl.SimplepdlPackageImpl#getGuidanceLink()
+	 * @generated
+	 */
+	int GUIDANCE_LINK = 7;
+
+	/**
+	 * The feature id for the '<em><b>Guidance</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUIDANCE_LINK__GUIDANCE = PROCESS_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Workdefinition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUIDANCE_LINK__WORKDEFINITION = PROCESS_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Guidance Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUIDANCE_LINK_FEATURE_COUNT = PROCESS_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Guidance Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUIDANCE_LINK_OPERATION_COUNT = PROCESS_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link simplepdl.WorkSequenceType <em>Work Sequence Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,7 +462,7 @@ public interface SimplepdlPackage extends EPackage {
 	 * @see simplepdl.impl.SimplepdlPackageImpl#getWorkSequenceType()
 	 * @generated
 	 */
-	int WORK_SEQUENCE_TYPE = 7;
+	int WORK_SEQUENCE_TYPE = 8;
 
 
 	/**
@@ -677,6 +723,38 @@ public interface SimplepdlPackage extends EPackage {
 	EReference getRequeteDeRessource_Workdefinition();
 
 	/**
+	 * Returns the meta object for class '{@link simplepdl.GuidanceLink <em>Guidance Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Guidance Link</em>'.
+	 * @see simplepdl.GuidanceLink
+	 * @generated
+	 */
+	EClass getGuidanceLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link simplepdl.GuidanceLink#getGuidance <em>Guidance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Guidance</em>'.
+	 * @see simplepdl.GuidanceLink#getGuidance()
+	 * @see #getGuidanceLink()
+	 * @generated
+	 */
+	EReference getGuidanceLink_Guidance();
+
+	/**
+	 * Returns the meta object for the reference '{@link simplepdl.GuidanceLink#getWorkdefinition <em>Workdefinition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Workdefinition</em>'.
+	 * @see simplepdl.GuidanceLink#getWorkdefinition()
+	 * @see #getGuidanceLink()
+	 * @generated
+	 */
+	EReference getGuidanceLink_Workdefinition();
+
+	/**
 	 * Returns the meta object for enum '{@link simplepdl.WorkSequenceType <em>Work Sequence Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -914,6 +992,32 @@ public interface SimplepdlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REQUETE_DE_RESSOURCE__WORKDEFINITION = eINSTANCE.getRequeteDeRessource_Workdefinition();
+
+		/**
+		 * The meta object literal for the '{@link simplepdl.impl.GuidanceLinkImpl <em>Guidance Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simplepdl.impl.GuidanceLinkImpl
+		 * @see simplepdl.impl.SimplepdlPackageImpl#getGuidanceLink()
+		 * @generated
+		 */
+		EClass GUIDANCE_LINK = eINSTANCE.getGuidanceLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Guidance</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GUIDANCE_LINK__GUIDANCE = eINSTANCE.getGuidanceLink_Guidance();
+
+		/**
+		 * The meta object literal for the '<em><b>Workdefinition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GUIDANCE_LINK__WORKDEFINITION = eINSTANCE.getGuidanceLink_Workdefinition();
 
 		/**
 		 * The meta object literal for the '{@link simplepdl.WorkSequenceType <em>Work Sequence Type</em>}' enum.
